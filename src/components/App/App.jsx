@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import MessageList from '../MessageList/MessageList';
+import { TextField, Button } from '@material-ui/core';
 
 function App () {
   useEffect( ()=>{
@@ -32,14 +33,13 @@ function App () {
   return (
     <div>
       <h1>North Cascades Messages</h1>
-      <p>
-        Name: <input type='text' placeholder='name' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, name: e.target.value } ) } } /> 
-        Message: <input type='text' placeholder='message' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, text: e.target.value } ) } } /> 
-        <button onClick={ sendMessage }>Send</button>
+       <p>  
+        <TextField placeholder='name' type='text' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, name: e.target.value } ) } } /> 
+        <TextField type='text' placeholder='message' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, text: e.target.value } ) } } /> 
+        <Button variant="outlined" onClick={ sendMessage }>Send</Button>
       </p>
       <h3>{ JSON.stringify( currentMessage ) }</h3>
       {/* <p>{ JSON.stringify( messages ) }</p> */}
-
       <MessageList messages={ messages } />
 
     </div>
