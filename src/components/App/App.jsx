@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import MessageList from '../MessageList/MessageList';
 import NewMessage from '../NewMessage/NewMessage';
-
+import './App.css';
 
 function App () {
   useEffect( ()=>{

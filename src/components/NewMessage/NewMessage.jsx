@@ -18,8 +18,8 @@ function NewMessage ( {fetchMessages} ) {
   return (
     <div>
       <h1>New Message</h1>
-      <TextField  type='Name' placeholder='NAME' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, name: e.target.value } ) } } />       
-      <TextField  type='text' placeholder='MESSAGE' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, text: e.target.value } ) } } /> 
+      <TextField className='text-fields' type='Name' placeholder='NAME' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, name: e.target.value } ) } } />       
+      <TextField className='text-fields' type='text' placeholder='MESSAGE' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, text: e.target.value } ) } } /> 
        {
        currentMessage.name === '' || currentMessage.text === '' ? 
       <Button disabled variant="contained" onClick={ sendMessage }>Send</Button>:
