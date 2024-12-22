@@ -17,15 +17,16 @@ function NewMessage ( {fetchMessages} ) {
   }
   return (
     <div>
-      <h1>New Message</h1>
-      <TextField className='text-fields' type='Name' placeholder='NAME' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, name: e.target.value } ) } } />       
-      <TextField className='text-fields' type='text' placeholder='MESSAGE' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, text: e.target.value } ) } } /> 
+      <h1 className='New-Message-Header'>New Message</h1>
+      <TextField className='Text-Fields' type='Name' placeholder='NAME' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, name: e.target.value } ) } } />       
+      <TextField className='Text-Fields' type='text' placeholder='MESSAGE' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, text: e.target.value } ) } } /> 
        {
        currentMessage.name === '' || currentMessage.text === '' ? 
       <Button disabled variant="outlined" onClick={ sendMessage }>Send</Button>:
       <Button variant="outlined" onClick={ sendMessage }>Send</Button>
       }
       {/* select tag will create a drop down menu */}
+      <form>
       <Select defaultValue='0' onChange={(e)=>{alert( e.target.value )}}>
         <MenuItem value='0'> 0</MenuItem>
         <MenuItem value='1'> 1</MenuItem>
@@ -33,6 +34,7 @@ function NewMessage ( {fetchMessages} ) {
         <MenuItem value='3'> 3</MenuItem>
         <MenuItem value='4'> 4</MenuItem>
       </Select>
+      </form>
     </div>
   );
 }

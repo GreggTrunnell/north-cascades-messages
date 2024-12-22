@@ -6,7 +6,7 @@
   background-color: #222;
   height: 70px;
   padding: 20px;
-  color: white;
+  color: black;
 }
 
 .App-title {
@@ -17,8 +17,20 @@
   font-size: large;
 }
 
-.text-fields{
-  background-color: white;
+.appHeader{
+  color: rgb(87, 13, 13);
+}
+
+.New-Message-Header{
+  color: rgb(16, 93, 16)
+}
+
+.Text-Fields{
+  background-color: rgb(152, 152, 19);
+}
+
+.Message-List-Header{
+  color: rgb(21, 21, 115)
 }
 
 @keyframes App-logo-spin {

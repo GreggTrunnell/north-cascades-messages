@@ -25,7 +25,7 @@ function App () {
 
   return (
     <div>
-      <h1>North Cascades Messages</h1>
+      <h1 className='appHeader'>North Cascades Messages</h1>
       <NewMessage fetchMessages={ fetchMessages } />
       {/* <p>{ JSON.stringify( messages ) }</p> */}
 
