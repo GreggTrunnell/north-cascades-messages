@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
-import { TextField, Button } from '@material-ui/core'; 
+import { TextField, Button, Select, MenuItem } from '@material-ui/core'; 
 
 //Need curly braces around fetchMessages here or it won't read as a function onClick
 function NewMessage ( {fetchMessages} ) {
@@ -8,7 +8,7 @@ function NewMessage ( {fetchMessages} ) {
 
   function sendMessage(){
     axios.post( '/api/messages', currentMessage ).then( function( response ){
-      console.log( 'back from POST:', response.data );
+      console.log( 'back from POST:', response.data ); 
       fetchMessages();
     }).catch( function ( err ){
       console.log( err );
@@ -22,9 +22,17 @@ function NewMessage ( {fetchMessages} ) {
       <TextField className='text-fields' type='text' placeholder='MESSAGE' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, text: e.target.value } ) } } /> 
        {
        currentMessage.name === '' || currentMessage.text === '' ? 
-      <Button disabled variant="contained" onClick={ sendMessage }>Send</Button>:
-      <Button variant="contained" onClick={ sendMessage }>Send</Button>
+      <Button disabled variant="outlined" onClick={ sendMessage }>Send</Button>:
+      <Button variant="outlined" onClick={ sendMessage }>Send</Button>
       }
+      {/* select tag will create a drop down menu */}
+      <Select defaultValue='0' onChange={(e)=>{alert( e.target.value )}}>
+        <MenuItem value='0'> 0</MenuItem>
+        <MenuItem value='1'> 1</MenuItem>
+        <MenuItem value='2'> 2</MenuItem>
+        <MenuItem value='3'> 3</MenuItem>
+        <MenuItem value='4'> 4</MenuItem>
+      </Select>
     </div>
   );
 }
