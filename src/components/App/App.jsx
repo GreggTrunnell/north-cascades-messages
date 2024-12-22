@@ -3,6 +3,7 @@ import axios from 'axios';
 import MessageList from '../MessageList/MessageList';
 import NewMessage from '../NewMessage/NewMessage';
 import './App.css';
+import useStore from '../Store/store';
 
 function App () {
   useEffect( ()=>{
@@ -10,7 +11,10 @@ function App () {
   }, [] );
   
   const [ messages, setMessages ] = useState( [] );
-  const [ currentMessage, setCurrentMessage ] = useState( { name: '', text: '' } );
+
+  //Need to connect to useStore
+  // state.favorites takes the state of favorites in useStore
+  const favorites = useStore(( state )=> state.favorites )
 
   function fetchMessages(){
     axios.get( '/api/messages' ).then( function( response ){
@@ -26,6 +30,8 @@ function App () {
   return (
     <div>
       <h1 className='appHeader'>North Cascades Messages</h1>
+      <h1>Favorites:</h1>
+      <p>{ favorites }</p>
       <NewMessage fetchMessages={ fetchMessages } />
       {/* <p>{ JSON.stringify( messages ) }</p> */}
 

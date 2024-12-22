@@ -6,10 +6,8 @@ function MessageList ( messages ) {
   return (
     <div>
       <h1 className='Message'>MessageList</h1>
-      {/* <p>{ JSON.stringify( messages ) }</p> */}
-
-      { messages.messages.map( (message, index )=>(
-        <Message key={index} message={ message } />
+      { messages.messages.map( ( message, index )=>(
+        <Message key={ index } message={ message } />
       ))}
     </div>
   );
