@@ -6,7 +6,7 @@
   background-color: #222;
   height: 70px;
   padding: 20px;
-  color: white;
+  color: black;
 }
 
 .App-title {
@@ -15,6 +15,41 @@
 
 .App-intro {
   font-size: large;
+}
+
+.appHeader{
+  color: rgb(87, 13, 13);
+}
+
+.New-Message-Header{
+  color: rgb(25, 143, 25)
+}
+
+.Text-Fields{
+  background-color: rgb(69, 232, 72);
+}
+
+.Message-list{
+  color: rgb(184, 99, 46);
+  font-size: 50px;
+}
+
+.add-to-favorite-button{
+  background-color: rgb(94, 193, 96);
+}
+
+.Favorites-header{
+  color: maroon
+}
+
+.Messages{
+  color: rgb(39, 13, 188);
+  font-size: 40px;
+}
+
+.Favorites-list{
+  color: maroon;
+  font-size: 30px;
 }
 
 @keyframes App-logo-spin {

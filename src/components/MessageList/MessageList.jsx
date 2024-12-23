@@ -1,20 +1,18 @@
 import {useState} from 'react';
-import { TextField } from '@material-ui/core';
-import Axios from 'axios';
+import Message from '../Message/Message';
+
 
 function MessageList ( messages ) {
-  MessageList
   return (
     <div>
-      <h1>MessageList</h1>
-      {/* <p>{ JSON.stringify( messages ) }</p> */}
-
-      { messages.messages.map( (message, index )=>(
-        <li key={index}>{message.name}: {message.text}</li>
+      <h1 className='Message-list'>MessageList</h1>
+      <div  className='Messages'>
+      { messages.messages.map( ( message, index )=>(
+        <Message key={ index } message={ message } />
       ))}
+      </div>
     </div>
   );
-
 }
 
 export default MessageList

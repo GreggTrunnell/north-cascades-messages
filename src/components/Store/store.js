@@ -1,14 +1,16 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
-const useStore = create( ( set ) =>(
-    // above will always be the same
+ const useStore = create(( set )=>(
     {
-        favorites: [],
-        addToFavorites: ( newFavorite )=>{
-            set( ( state )=>( { favorites: [...state.favorites, newFavorite ] } ) )
-        }
+      favorites: [],
+      addToFavorites: ( newFavorite )=>{
+        //Needed to favorite's' not favorite. Needed to restart server to work properly.
+        set(( state )=> ({ favorites:  [ ...state.favorites, newFavorite] } ) )
+      }
     }
-    // below will always be the same
 ))
 
-export default useStore;
+ export default useStore;
+
+ 
+

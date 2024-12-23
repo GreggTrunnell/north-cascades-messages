@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import MessageList from '../MessageList/MessageList';
-import { TextField, Button } from '@material-ui/core';
+import NewMessage from '../NewMessage/NewMessage';
+import './App.css';
+import useStore from '../Store/store';
+
 
 function App () {
   useEffect( ()=>{
@@ -9,7 +12,10 @@ function App () {
   }, [] );
   
   const [ messages, setMessages ] = useState( [] );
-  const [ currentMessage, setCurrentMessage ] = useState( { name: '', text: '' } );
+
+  //Need to connect to useStore
+  // state.favorites takes the state of favorites in useStore
+  const favorites = useStore(( state )=> state.favorites )
 
   function fetchMessages(){
     axios.get( '/api/messages' ).then( function( response ){
@@ -21,23 +27,14 @@ function App () {
     })
   }
 
-  function sendMessage(){
-    axios.post( '/api/messages', currentMessage ).then( function( response ){
-      console.log( 'back from POST:', response.data );
-      fetchMessages();
-    }).catch( function ( err ){
-      console.log( err );
-      alert( 'error posting message' );
-    })
-  }
+
   return (
     <div>
-      <h1>North Cascades Messages</h1>
-        <TextField placeholder='name' type='text' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, name: e.target.value } ) } } /> 
-        <TextField type='text' placeholder='message' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, text: e.target.value } ) } } /> 
-        <Button variant="outlined" onClick={ sendMessage }>Send</Button>
-      <h3>{ JSON.stringify( currentMessage ) }</h3>
-      {/* <p>{ JSON.stringify( messages ) }</p> */}
+      <h1 className='appHeader'>North Cascades Messages</h1>
+      <h1 className='Favorites-header'>Favorites:</h1>
+      <p className='Favorites-list'>{JSON.stringify( favorites )}</p>
+      <NewMessage fetchMessages={ fetchMessages } />
+
       <MessageList messages={ messages } />
 
     </div>
