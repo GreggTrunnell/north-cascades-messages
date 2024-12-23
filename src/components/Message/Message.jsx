@@ -16,7 +16,7 @@ function Message ( message ) {
     <div>
       <p><strong onClick={ ()=>{ setShowing( !showing ) } }>{ message.message.name }</strong>: 
       { showing ? message.message.text : '' } 
-      <button className='add-to-favorite-button' onClick={ addMeToFavorites }>✚</button>
+      <button className='add-to-favorite-button' onClick={ addMeToFavorites }>Favorite</button>
       </p>
     </div>
   );
