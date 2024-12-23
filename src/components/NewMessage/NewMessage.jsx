@@ -23,7 +23,7 @@ function NewMessage ( { fetchMessages } ) {
       <TextField className='Text-Fields' type='text' placeholder='MESSAGE' onChange={ (e)=>{ setCurrentMessage( {...currentMessage, text: e.target.value } ) } } /> 
        {
        currentMessage.name === '' || currentMessage.text === '' ? 
-      <Button className="button"disabled variant="outlined" onClick={ sendMessage }>Send</Button>:
+      <Button className="button" disabled variant="outlined" onClick={ sendMessage }>Send</Button>:
       <Button className="button" variant="outlined" onClick={ sendMessage }>Send</Button>
       }
       {/* select tag will create a drop down menu */}
