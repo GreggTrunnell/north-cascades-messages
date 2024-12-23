@@ -8,7 +8,7 @@ function Message ( message ) {
   const addToFavorites = useStore(( state )=> state.addToFavorites )
 
   function addMeToFavorites(){
-    console.log("Meow", message.message)
+    console.log("addMeToFavorites button hit", message.message);
     addToFavorites( message.message );
   }
 

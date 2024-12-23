@@ -31,10 +31,8 @@ function App () {
     <div>
       <h1 className='appHeader'>North Cascades Messages</h1>
       <h1>Favorites:</h1>
-      <p>{ favorites }</p>
+      <p>{JSON.stringify( favorites )}</p>
       <NewMessage fetchMessages={ fetchMessages } />
-      {/* <p>{ JSON.stringify( messages ) }</p> */}
-
       <MessageList messages={ messages } />
 
     </div>
